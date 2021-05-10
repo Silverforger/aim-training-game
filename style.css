@@ -81,6 +81,7 @@ button {
 }
 
 .playing-field {
+    position: relative;
     height: 500px;
     width: 500px;
     border: 2px solid white;
@@ -88,7 +89,7 @@ button {
 }
 
 .playing-field div {
-    position: relative;
+    position: absolute;
     height: 50px;
     width: 50px;
     background-color: rgb(253, 68, 68);

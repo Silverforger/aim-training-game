@@ -19,7 +19,8 @@ function gameStart() {
     }, 1000);
 
     adjustFieldSize(playSize);
-    generateMarks();
+    generateMark();
+    generateMark2();
 }
 
 function adjustFieldSize(size) {
@@ -40,27 +41,55 @@ function adjustFieldSize(size) {
     currentWidth = parseInt((playingField.style.width).replace("px", ""), 10)
 }
 
-function generateMarks() {
+function generateMark() {
     if (!timesup) {
         let topRand, leftRand = 0;
         topRand = Math.floor(Math.random() * (currentHeight - 50));
-        leftRand = Math.floor(Math.random() * (currentWidth - 50));
+        leftRand = Math.floor(Math.random() * (currentWidth/2 - 50));
 
         const divcreate = document.createElement('div');
         divcreate.classList.add("mark");
         playingField.appendChild(divcreate);
-        
+      
         const mark = document.querySelector('.mark');
         mark.style.top = `${topRand}px`;
         mark.style.left = `${leftRand}px`;
         mark.style.transitionDuration = "0.1s";
         mark.style.transform = "scale(1)";
-        
+      
         mark.addEventListener('click', () => {
             mark.style.transform = "scale(0)";
             mark.ontransitionend = () => {
                 mark.remove();
-                generateMarks();
+                generateMark();
+                hits++;
+                updateHits();
+            }
+        })
+    }   
+}
+
+function generateMark2() {
+    if (!timesup) {
+        let top2Rand, left2Rand = 0;
+        top2Rand = Math.floor(Math.random() * (currentHeight - 50));
+        left2Rand = Math.floor((Math.random() * currentWidth/2) + currentWidth/2 -50);
+
+        const div2create = document.createElement('div');
+        div2create.classList.add("mark2");
+        playingField.appendChild(div2create);
+        
+        const mark2 = document.querySelector('.mark2');
+        mark2.style.top = `${top2Rand}px`;
+        mark2.style.left = `${left2Rand}px`;
+        mark2.style.transitionDuration = "0.1s";
+        mark2.style.transform = "scale(1)";
+
+        mark2.addEventListener('click', () => {
+            mark2.style.transform = "scale(0)";
+            mark2.ontransitionend = () => {
+                mark2.remove();
+                generateMark2();
                 hits++;
                 updateHits();
             }
