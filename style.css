@@ -95,9 +95,9 @@ button {
     border-radius: 25px;
 }
 
-.playing-field div:active {
+/* .playing-field div:active {
     transform: scale(0.9);
-}
+} */
 
 
 
