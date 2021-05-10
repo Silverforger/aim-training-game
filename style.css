@@ -65,7 +65,19 @@ button {
 .range-alltext {
     text-align: center;
     font-size: 1.3em;
-    color: #fff;
+    color: #000;
+}
+
+.remaining-counter {
+    background-color: rgba(250, 235, 215);
+    width: 350px;
+    margin: 10px auto;
+}
+
+.hit-counter {
+    background-color: rgba(252, 215, 167, 0.911);
+    width: 200px;
+    margin: 10px auto;;
 }
 
 .playing-field {
@@ -74,4 +86,18 @@ button {
     border: 2px solid white;
     margin-top: 30px;
 }
+
+.playing-field div {
+    position: relative;
+    height: 50px;
+    width: 50px;
+    background-color: rgb(253, 68, 68);
+    border-radius: 25px;
+}
+
+.playing-field div:active {
+    transform: scale(0.9);
+}
+
+
 
