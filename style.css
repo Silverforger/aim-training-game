@@ -14,7 +14,7 @@ button {
 
 .page-welcome {
     height: 100vh;
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -38,14 +38,40 @@ button {
     background-color: rgb(29, 29, 29);
 }
 
-.menubtn {
+.homebtn {
+    display: none;
     position: fixed;
     top: 20px;
     right: 20px;
     width: 95px;
-    font-size: 1.2em;
-
+    font-size: 1.1em;
+    background-color: rgba(250, 235, 215, 0.911);
 }
 
+/* RANGE PLAYING GAME */
+.range-game {
+    display: block;
+}
 
+.range-container {
+    width: 90%;
+    margin: 30px auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.range-alltext {
+    text-align: center;
+    font-size: 1.3em;
+    color: #fff;
+}
+
+.playing-field {
+    height: 500px;
+    width: 500px;
+    border: 2px solid white;
+    margin-top: 30px;
+}
 
