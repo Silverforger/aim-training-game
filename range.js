@@ -1,39 +1,72 @@
 const playingField = document.querySelector('.playing-field');
 const hitCounter = document.querySelector('.hit-counter');
 const timeCounter = document.querySelector('.remaining-counter');
-let playSize = "normal";
+const rangeGame = document.querySelector('#range-game');
+const rangeDifContainer = document.querySelector('.range-dif-container');
+const rangeDifButton = document.querySelectorAll('.range-dif');
+let playSize = "";
 let timesup = false;
 let currentHeight;
 let currentWidth;
 let hits = 0;
-let time = 30;
+let three = 3;
+let timer = 10;
+var threeSecondsID;
+var gameTimerID;
 
-function gameStart() {
-    let countdown = setInterval(() => {
-        if (time <= 0) {
-            clearInterval(countdown);
-            timesup = true;
+rangeDifButton.forEach(button => {
+    button.addEventListener('click', (e) => {
+        playSize = e.target.textContent;
+        rangeDifContainer.style.opacity = "0";
+        rangeDifContainer.ontransitionend = () => {
+            rangeDifContainer.style.display = "none";
+            rangeGame.style.display = "block";
+            gameStart();    
         }
-        timeCounter.textContent = `REMAINING: ${time}S`
-        time -= 1;
-    }, 1000);
-
+    })
+})
+    
+function gameStart() {
+    threeSeconds();
+    threeSecondsID = setInterval(threeSeconds, 1000);
     adjustFieldSize(playSize);
-    generateMark();
-    generateMark2();
+}
+
+function threeSeconds() {
+    const threeSecBox = document.querySelector('.three-sec-box');
+    const threeSecText = document.querySelector('.three-sec-timer');
+    if (three <= 0) {
+        clearInterval(threeSecondsID);
+        threeSecBox.style.display = "none";
+        generateMark();
+        generateMark2();
+        gameTimer();
+        gameTimerID = setInterval(gameTimer, 1000);
+    }
+    threeSecText.textContent = `${three}`
+    three -= 1;
+}
+
+function gameTimer() {
+    if (timer <= 0) {
+        clearInterval(gameTimerID);
+        timesup = true;
+    }
+    timeCounter.textContent = `REMAINING: ${timer}s`
+    timer -= 1;
 }
 
 function adjustFieldSize(size) {
-    if (size == "small") {
-        playingField.style.marginTop = "100px"
+    if (size == "SMALL") {
+        playingField.style.marginTop = "120px"
         playingField.style.height = "300px";
         playingField.style.width = "300px";
     }
-    else if (size == "normal") {
+    else if (size == "NORMAL") {
         playingField.style.height = "500px";
         playingField.style.width = "500px";
     }
-    else if (size == "wide") {
+    else if (size == "WIDE") {
         playingField.style.height = "500px";
         playingField.style.width = "1000px";
     }
@@ -104,5 +137,3 @@ function updateHits() {
 function updateTime() {
     timeCounter.textContent = `REMAINING: ${time}S`;
 }
-
-gameStart();
