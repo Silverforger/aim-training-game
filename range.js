@@ -17,7 +17,7 @@ var gameTimerID;
 rangeDifButton.forEach(button => {
     button.addEventListener('click', (e) => {
         playSize = e.target.textContent;
-        rangeDifContainer.style.opacity = "0";
+        rangeDifContainer.style.opacity = "00";
         rangeDifContainer.ontransitionend = () => {
             rangeDifContainer.style.display = "none";
             rangeGame.style.display = "block";
