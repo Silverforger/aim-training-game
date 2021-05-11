@@ -58,7 +58,7 @@ function gameTimer() {
 
 function adjustFieldSize(size) {
     if (size == "SMALL") {
-        playingField.style.marginTop = "120px"
+        playingField.style.marginTop = "125px"
         playingField.style.height = "300px";
         playingField.style.width = "300px";
     }
