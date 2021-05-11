@@ -49,8 +49,50 @@ button {
 }
 
 /* RANGE PLAYING GAME */
-.range-game {
-    display: block;
+.range-dif-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    transition-duration: 1s;
+    opacity: 1;
+}
+
+.range-dif-box {
+    background-color: rgb(221, 213, 213);
+    border: 3px solid white;
+    width: 350px;
+    height: 110px;
+    text-align: center;
+}
+
+.range-dif-box h2 {
+    margin-top: 5px;
+}
+
+.range-dif-box button {
+    margin: 5px;
+    width: 80px;
+    font-size: 1em;
+}
+
+.three-sec-box {
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.three-sec-timer {
+    position: absolute;
+    color: #fff;
+    font-size: 5em;
+    top: 47.5%;
+    z-index: 9999;
+}
+
+#range-game {
+    display: none;
 }
 
 .range-container {
@@ -95,10 +137,5 @@ button {
     background-color: rgb(253, 68, 68);
     border-radius: 25px;
 }
-
-/* .playing-field div:active {
-    transform: scale(0.9);
-} */
-
 
 
