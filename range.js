@@ -10,7 +10,7 @@ let currentHeight;
 let currentWidth;
 let hits = 0;
 let three = 3;
-let timer = 10;
+let timer = 30;
 var threeSecondsID;
 var gameTimerID;
 
